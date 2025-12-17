@@ -1,11 +1,39 @@
-# Snakemake Workflow in Docker
+# snakemake-workflow
 
-## Как запустить (локально или в Docker)
+## Как запустить (инструкция для проверяющего)
 
-### Вариант 1: В Docker (рекомендуется)
+Скопируйте и выполните **по одной команды** в терминале своей машины (требуется установленный Docker):
+
 ```bash
-docker run -it --rm -v "$(pwd)":/work -w /work python:3.11-slim bash -c "
-  pip install snakemake && \
-  snakemake --cores 1 && \
-  cat output/hello.txt
-"
+git clone https://github.com/ewfhe/snakemake-workflow.git
+cd snakemake-workflow
+git checkout main  # если нужно переключиться на ветку с кодом
+
+docker run -it --rm \
+  -v "$(pwd)":/work \
+  -w /work \
+  debian:bookworm-slim \
+  bash -c "
+    apt update && \
+    apt install -y python3 python3-pip python3-venv git && \
+    python3 -m venv venv && \
+    . venv/bin/activate && \
+    pip install snakemake && \
+    snakemake --cores 1 && \
+    cat output/hello.txt
+
+
+Это **рабочая версия** проекта.  
+Она содержит полный Snakemake workflow и предназначена для слияния в `main`.
+
+Выполните в терминале (требуется Docker):
+
+```bash
+git clone https://github.com/ewfhe/snakemake-workflow.git
+cd snakemake-workflow
+git checkout dev
+
+docker run -it --rm \
+  -v "$(pwd)":/work \
+  -w /work \
+  debian:bookwr
