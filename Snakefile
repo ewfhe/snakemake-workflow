@@ -7,4 +7,4 @@ rule generate_hello:
         "output/hello.txt"
     run:
         import subprocess
-        subprocess.run(["python3", "scripts/hello.py", "Student"], check=True)
+        subprocess.run(["python3", "scripts/hello.py"], check=True)

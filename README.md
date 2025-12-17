@@ -21,3 +21,20 @@ docker run -it --rm \
     pip install snakemake && \
     snakemake --cores 1 && \
     cat output/hello.txt
+
+
+Это **рабочая версия** проекта.  
+Она содержит полный Snakemake workflow и предназначена для слияния в `main`.
+
+Выполните в терминале (требуется Docker):
+
+```bash
+git clone https://github.com/ewfhe/snakemake-workflow.git
+cd snakemake-workflow
+git checkout dev
+
+docker run -it --rm \
+  -v "$(pwd)":/work \
+  -w /work \
+  debian:bookwr
+
