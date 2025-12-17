@@ -4,7 +4,7 @@
 Скопируйте и выполните **одну команду** в терминале своей машины (требуется установленный Docker):
 
 ```bash
-git clone https://github.com /ewfhe/snakemake-workflow.git
+git clone https://github.com/ewfhe/snakemake-workflow.git
 cd snakemake-workflow
 git checkout main  # если нужно переключиться на ветку с кодом
 
